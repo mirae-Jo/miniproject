@@ -63,8 +63,12 @@ header h1 span {
   margin: 0 4rem;
 }
 
+<<<<<<< HEAD
+.emoji > div {
+=======
 .person {
   position: relative;
+>>>>>>> 7038b1134c50fca0bc5296794ec387438a653b2f
   width: 30%;
   height: 20rem;
   border-radius: 1rem;
@@ -124,6 +128,12 @@ header h1 span {
   background-size: 80% 80%;
 }
 
+<<<<<<< HEAD
+.emoji div:hover .ef-a {
+  opacity: 0;
+}
+
+=======
 .person .one .card-back {
   background-color: #dfe5ea;
   z-index: 5;
@@ -155,9 +165,11 @@ header h1 span {
 }
 
 /* member */
+>>>>>>> 7038b1134c50fca0bc5296794ec387438a653b2f
 .member {
-  width: 1100px;
+  width: 1072px;
   height: 700px;
+  margin: 0 auto;
   margin-top: 30px;
 }
 
@@ -175,7 +187,7 @@ header h1 span {
   background-color: #fff;
 }
 
-.profile_wrap>.left>.mbti {
+.profile_wrap > .left > .mbti {
   width: 500px;
   height: 100px;
   position: absolute;
@@ -199,7 +211,7 @@ header h1 span {
 }
 
 .member .comment_wrap .comment_box {
-  width: 1065px;
+  width: 1040px;
   height: 120px;
   font-size: 1.5rem;
   padding: 15px;
