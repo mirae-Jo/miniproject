@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀 소개 페이지</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center
+        }
+
+        .main {
+            background-color: green;
+            width: 1200px;
+            height: 800px;
+
+            border-radius: 5%;
+            margin: 20px;
+
+        }
+
+        .teamname {
+            background-color: aqua;
+            margin: 1% auto 1% auto;
+            padding: 5px 5px 5px 5px;
+
+            text-align: center;
+            border-radius: 5%;
+            line-height: 100%;
+            width: 70%;
+
+            font-size: 50px
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            background-color: red;
+            height: 400px;
+            justify-content: center;
+        }
+
+        h1,
+        p {
+            text-align: center;
+        }
+
+        p {
+            font-size: 30px;
+        }
+
+        .introduce {
+            background-color: beige;
+            width: 600px;
+            padding: 30px;
+        }
+
+        .goal {
+            background-color: blue;
+            width: 600px;
+            padding: 30px;
+
+        }
+
+        .emojis {
+            background-color: blueviolet;
+            height: 250px;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .emoji {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            border-radius: 50%;
+            margin: 0 auto 0 auto;
+
+            background-position: center;
+            background-size: 100%;
+        }
+
+        .sub {
+            background-color: yellow;
+            width: 1200px;
+            height: 600px;
+            border-radius: 5%;
+            display: flex;
+            flex-direction: row;
+            /* display: none; */
+        }
+
+        .sub_left {
+            background-color: black;
+            height: 500px;
+            width: 400px;
+            margin: 30px 20px 30px 50px;
+        }
+
+        .pic {
+            background-image: url(data:image/jpeg;base64,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);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 70%;
+        }
+
+        .mbti {
+            background-color: blueviolet;
+            height: 30%;
+            font-size: 70px;
+            text-align: center;
+            align-items: center;
+        }
+
+        .sub_right {
+            background-color: aqua;
+            width: 650px;
+            height: 500px;
+            margin-top: 30px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* .HIDDEN_CLASSNAME {
+            display: none;     css르르르충돌
+        } */
+        .form-floating {
+            width: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="teamname">
+            <h1> IP곤해</h1>
+        </div>
+        <div class="row">
+            <div class="introduce">
+                <h1>팀소개</h1>
+                <p>
+                    소개소개
+                    <br>
+                    오구오구
+                    <br>
+                    잘한다잘한다
+                </p>
+            </div>
+            <div class="goal">
+                <h1>우리팀의 목표</h1>
+                <p>
+                    포기하지 않고
+                    <br>
+                    매순간 프로젝트를 완수하는
+                    <br>
+                    쥰내멋진 프론트엔드
+                    <br>
+                    개발자로 취업하기
+                </p>
+            </div>
+        </div>
+        <div class="emojis">
+            <div class="emoji member1" style="background-image: url(emoji.jpg)">
+            </div>
+            <div class="emoji member2">
+            </div>
+            <div class="emoji member3">
+            </div>
+            <div class="emoji member4">
+            </div>
+        </div>
+    </div>
+
+    <div class="member_info1">
+        <div class="sub">
+            <div class="sub_left">
+                <div class="pic"></div>
+                <div class="mbti">
+                    <p>팀원에게 한마디</p>
+                    <p>금일 야식 추천 바람</p>
+                </div>
+            </div>
+            <div class="sub_right">
+                <h3>이름 : 전민석</h3>
+                <h3>취미 : 운동 요리 게임</h3>
+                <h3>MBTI : INFP/INTP</h3>
+                <h3>장점 : ???</h3>
+                <h3>
+                    저는 이런 개발자가 되고 싶어요 <br>
+                    12312323
+                </h3>
+
+                <a href="https://www.google.co.kr/">블로그 주소</a>
+            </div>
+        </div>
+        <div class="form-floating" id="commentnBox">
+            <textarea class="form-control" placeholder="Leave a comment here" id="comment"></textarea>
+            <label for="floatingTextarea">Comments</label>
+            <button type="submit" id="commentBtn">흔적남기기</button>
+            <p>코맹트</p>
+
+        </div>
+
+    </div>
+    <div class="sub member_info2">
+        <div class="sub_left">
+            <div class="pic"></div>
+            <div class="mbti">
+                <p>팀원에게 한마디</p><!--나는 이런 개발자가 되겠다.-->
+            </div>
+        </div>
+        <div class="sub_right">
+            <h3>22222</h1>
+        </div>
+    </div>
+
+    <div class="sub member_info3">
+        <div class="sub_left">
+            <div class="pic"></div>
+            <div class="mbti">
+                <p>팀원에게 한마디</p>
+            </div>
+        </div>
+        <div class="sub_right">
+            <h1>33333</h1>
+        </div>
+    </div>
+
+    <div class="sub member_info4">
+        <div class="sub_left">
+            <div class="pic"></div>
+            <div class="mbti">
+                <p>팀원에게 한마디</p>
+            </div>
+        </div>
+        <div class="sub_right">
+            <h1>4444</h1>
+        </div>
+    </div>
+
+</body>
+<script type="module">
+    // Firebase SDK 라이브러리 가져오기
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { collection, addDoc, orderBy, setDoc, doc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+
+    // Firebase 구성 정보 설정
+    const firebaseConfig = {
+        apiKey: "AIzaSyDf7hkwQFiEK4GsyjRqaWbNDAUOYm8bbJ0",
+        authDomain: "mini-2610d.firebaseapp.com",
+        projectId: "mini-2610d",
+        storageBucket: "mini-2610d.appspot.com",
+        messagingSenderId: "739523888434",
+        appId: "1:739523888434:web:75c5e62532fd160c94832b",
+        measurementId: "G-XWWKYZT4CS"
+    };
+
+
+    // Firebase 인스턴스 초기화
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    //-------------------------------------------------------------------------------------------------------------------------------------
+
+    const member1 = document.querySelector('.member1')
+
+    function click1() {
+        $('.member_info1').toggle()
+        $('.member_info2').css('display', 'none')
+        $('.member_info3').css('display', 'none')
+        $('.member_info4').css('display', 'none')
+        window.scrollTo(0, 500, behavior = "smooth")
+    }
+    member1.addEventListener('click', click1)
+
+    //1번 comment
+    // const commentnBox = document.querySelector('#commentnBox')
+    // const commentBtn = document.querySelector('#commentBtn')
+    //연결전 뜨는지 확인
+    // function comment1() {
+    //     // const comment = $('#comment').val()
+    //     let temp_html = `<p>${$('#comment').val()}</p>`
+    //     $('#commentnBox').append(temp_html)
+    //     $('.form-control').val('');
+    // }
+    // commentBtn.addEventListener('click', comment1)
+    // DB 보냄
+    $("#commentBtn").click(async function () {
+        let comment = $('#comment').val()
+
+        let doc = {
+            'comment': comment,
+            'date': new Date() /*Date()는 문자열취급 new Date는 타임스탬프*/
+        };
+        await addDoc(collection(db, "minseok"), doc);
+
+        let temp_html = `<p>${$('#comment').val()}</p>`
+        $('#commentnBox').append(temp_html)
+        $('.form-control').val('');
+    })
+
+    //     const q = db.collection(minseok).orderBy('date', 'desc')
+    //     q.get().then((querySnapshot) => {
+    //         querySnapshot.forEach((doc) => {
+    //             const data = doc.data();
+    //             console.log(data);
+    //         })
+    //     })
+    //     .catch((error) => {
+    //     console.error('Error getting documents: ', error);
+    //   });
+    // let docs = await getDocs(q);
+    //DB 가져옴
+
+    const querySnapshot = await getDocs(collection(db, "minseok"), orderBy('date', 'desc'));
+
+    querySnapshot.forEach((doc) => {
+        const row = doc.data();
+        const comment = row['comment'];
+
+        const temp_html = `<p>${comment}</p>`;
+        $('#commentBox').append(temp_html);
+    });
+    // let docs = await getDocs(collection(db, "minseok"), orderBy('date','desc'));
+
+
+    // docs.forEach((doc) => {
+    //     let row = doc.data();
+    //     let comment = row['comment']
+
+    //     let temp_html = `<p>${comment}</p>`
+    //     $('#commentnBox').append(temp_html)
+    // });
+
+
+
+
+    // 노마드버전
+    // function comment1() {
+    //     const comment = $('#comment').val()
+    //     const span = document.createElement('span')
+    //     span.innerText = comment
+
+    //     commentnBox.appendChild(span)
+    // }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------
+    const member2 = document.querySelector('.member2')
+
+    function click2() {
+        $('.member_info2').toggle()
+        $('.member_info1').css('display', 'none')
+        $('.member_info3').css('display', 'none')
+        $('.member_info4').css('display', 'none')
+        window.scrollTo(0, 500)
+
+    }
+    member2.addEventListener('click', click2)
+    //-------------------------------------------------------------------------------------------------------------------------------------
+    const member3 = document.querySelector('.member3')
+
+    function click3() {
+        $('.member_info3').toggle()
+        $('.member_info2').css('display', 'none')
+        $('.member_info1').css('display', 'none')
+        $('.member_info4').css('display', 'none')
+        window.scrollTo(0, 500)
+
+    }
+    member3.addEventListener('click', click3)
+    //-------------------------------------------------------------------------------------------------------------------------------------
+
+    const member4 = document.querySelector('.member4')
+    function click4() {
+
+        $('.member_info4').toggle()
+        $('.member_info2').css('display', 'none')
+        $('.member_info3').css('display', 'none')
+        $('.member_info1').css('display', 'none')
+        window.scrollTo(0, 500)
+
+    }
+    member4.addEventListener('click', click4)
+    // click1()
+</script>
+
+</html>

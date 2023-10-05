@@ -54,7 +54,7 @@ header h1 span {
 .team_goal {
   width: 490px;
   height: 500px;
-  margin-top: 40px;
+  margin: 40px;
   text-align: center;
   border: 3px solid #bbb;
   border-radius: 30px;
