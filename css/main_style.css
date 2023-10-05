@@ -1,31 +1,3 @@
-/* reset */
-* {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-family: "맑은 고딕";
-  color: #333333;
-}
-
-body {
-  width: 1200px;
-  height: 650px;
-  background-color: #ffffff;
-  font-size: 20px;
-  margin: 0 auto;
-}
-
-a {
-  text-decoration: none;
-  display: block;
-}
-
-img {
-  width: 100%;
-}
-
-/* body */
-
 body {
   background-color: #eee;
 }
@@ -84,70 +56,105 @@ header h1 span {
   margin-top: 30px;
 }
 
+/* emoji */
 .emoji {
   display: flex;
   justify-content: space-between;
   margin: 0 4rem;
 }
 
-.emoji>div {
+.person {
+  position: relative;
   width: 30%;
   height: 20rem;
   border-radius: 1rem;
+  perspective: 500px;
+  cursor: pointer;
 }
 
-.personal_emoji1 {
-  position: relative;
-  background-color: #dfe5ea;
+.person .card {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+  transform-style: preserve-3d;
 }
 
-.personal_emoji2 {
-  position: relative;
-  background-color: #f0dbd4;
+.person:hover .card {
+  transform: rotateY(180deg);
 }
 
-.personal_emoji3 {
-  position: relative;
-  background-color: #eadcde;
-}
-
-.ef-a {
+.person .card>div {
   position: absolute;
-  width: 60%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  border-radius: 20px;
+  backface-visibility: hidden;
 }
 
-.ef-b {
-  display: none;
+.person .one .card-front {
+  background-color: #dfe5ea;
+  z-index: 10;
+  background-image: url(../img/pngwing.com.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80% 80%;
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateZ(0);
-  }
+.person .two .card-front {
+  background-color: #f0dbd4;
+  z-index: 10;
+  background-image: url(../img/pngwing.com.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80% 80%;
 }
 
-.emoji div:hover .ef-b {
-  display: block;
-  animation: fadeInUp 1s;
+.person .tree .card-front {
+  background-color: #eadcde;
+  z-index: 10;
+  background-image: url(../img/pngwing.com.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80% 80%;
 }
 
-
-.emoji div:hover .ef-a {
-  opacity: 0;
+.person .one .card-back {
+  background-color: #dfe5ea;
+  z-index: 5;
+  transform: rotateY(180deg);
+  background-image: url(../img/emoji_minseok.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
+.person .two .card-back {
+  background-color: #f0dbd4;
+  z-index: 5;
+  transform: rotateY(180deg);
+  background-image: url(../img/mirae_emoji.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
 
+.person .tree .card-back {
+  background-color: #eadcde;
+  z-index: 5;
+  transform: rotateY(180deg);
+  background-image: url(../img/emoji_yuna.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
 
-
+/* member */
 .member {
   width: 1100px;
   height: 700px;
