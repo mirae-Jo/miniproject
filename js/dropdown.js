@@ -1,7 +1,7 @@
 function hide() {
   $(".member").css("display", "none");
 }
-hide();
+// hide();
 
 const member1 = document.querySelector(".person>.one");
 function click1(e) {
