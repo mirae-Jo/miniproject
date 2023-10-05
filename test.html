@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,14 +11,23 @@
   <script type="module" src="js/dropdown.js"></script>
   <script type="module" src="js/comment.js"></script>
   <script src="js/weather.js"></script>
+  <style>
+    span {
+      font-size: 40px;
+    }
+    #ip {
+      color: red;
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <h1><span>IP gonhae</span>💤</h1>
   </header>
   <div class="wrap">
     <div class="team_intro">
-      <h4>IP resent💤</h4>
+      <span id="ip">IP</span><span>resent💤</span>
       <p>#취미부자</p>
       <p>#내향인</p>
       <p>#전원I</p>
@@ -73,7 +83,8 @@
           저는 이런 개발
         </p>
         <a href="https://www.google.co.kr/">블로그 주소</a>
-      </div>    </div>
+      </div>
+    </div>
     <div class="comment_wrap">
       <input class="comment_box" type="text" placeholder="comment"></input>
       <button class="comment_btn">확인</button>
@@ -120,12 +131,13 @@
         <a href="https://www.google.co.kr/">블로그 주소</a>
       </div>
     </div>
-    <!-- footer -->
-    <footer id="footer">
-      <div class="copyright">&copy;2023 IP곤해. All Rights Reserved.</div>
-    </footer>
+  </div>
+  <!-- footer -->
+  <footer id="footer">
+    <div class="copyright">&copy;2023 IPgonhae. All Rights Reserved.</div>
+  </footer>
 
-    
-  </body>
-  
+
+</body>
+
 </html>
