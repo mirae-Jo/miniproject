@@ -79,3 +79,4 @@ $(".comment_btn").click(async function () {
   $(".comment_wrap").append(temp_html);
   $(".comment_wrap").val("");
 });
+
