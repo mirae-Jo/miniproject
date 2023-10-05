@@ -68,7 +68,6 @@ const db = getFirestore(app);
 // });
 $(".comment_btn").click(async function () {
   let comment = $(".comment_box").val();
-  console.log(comment);
 
   let doc = {
     comment: comment,
