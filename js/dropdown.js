@@ -1,7 +1,7 @@
-function hide() {
-  $(".member").css("display", "none");
-}
-hide();
+// function hide() {
+//   $(".member").css("display", "none");
+// }
+// hide();
 
 const member1 = document.querySelector(".personal_emoji1");
 function click1(e) {
@@ -10,7 +10,6 @@ function click1(e) {
   $(".member2").css("display", "none");
   $(".member3").css("display", "none");
   window.scrollTo(0, 700);
-
 }
 
 member1.addEventListener("click", click1);
@@ -38,4 +37,3 @@ function click3(e) {
 }
 member3.addEventListener("click", click3);
 // //-------------------------------------------------------------------------------------------------------------------------------------
-
