@@ -90,7 +90,7 @@ header h1 span {
   margin: 0 4rem;
 }
 
-.emoji>div {
+.emoji > div {
   width: 30%;
   height: 20rem;
   border-radius: 1rem;
@@ -140,17 +140,14 @@ header h1 span {
   animation: fadeInUp 1s;
 }
 
-
 .emoji div:hover .ef-a {
   opacity: 0;
 }
 
-
-
-
 .member {
-  width: 1100px;
+  width: 1072px;
   height: 700px;
+  margin: 0 auto;
   margin-top: 30px;
 }
 
@@ -168,7 +165,7 @@ header h1 span {
   background-color: #fff;
 }
 
-.profile_wrap>.left>.mbti {
+.profile_wrap > .left > .mbti {
   width: 500px;
   height: 100px;
   position: absolute;
@@ -192,7 +189,7 @@ header h1 span {
 }
 
 .member .comment_wrap .comment_box {
-  width: 1065px;
+  width: 1040px;
   height: 120px;
   font-size: 1.5rem;
   padding: 15px;

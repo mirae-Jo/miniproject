@@ -1,7 +1,7 @@
-// function hide() {
-//   $(".member").css("display", "none");
-// }
-// hide();
+function hide() {
+  $(".member").css("display", "none");
+}
+hide();
 
 const member1 = document.querySelector(".personal_emoji1");
 function click1(e) {

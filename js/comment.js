@@ -74,9 +74,14 @@ $(".comment_btn").click(async function () {
     date: new Date() /*Date()는 문자열취급 new Date는 타임스탬프*/,
   };
   await addDoc(collection(db, "comments"), doc);
-
-  let temp_html = `<p>${comment}</p>`;
-  $(".comment_wrap").append(temp_html);
-  $(".comment_wrap").val("");
+  window.location.reload();
 });
 
+let docs = await getDocs(collection(db, "comments"));
+docs.forEach((doc) => {
+  let row = doc.data();
+  let message = row["comment"];
+
+  let temp_html = `<br><br><p>${message}</p>`;
+  $(".comment_wrap").append(temp_html);
+});
