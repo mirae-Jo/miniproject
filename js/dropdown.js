@@ -3,7 +3,7 @@ function hide() {
 }
 hide();
 
-const member1 = document.querySelector(".personal_emoji1");
+const member1 = document.querySelector(".person>.one");
 function click1(e) {
   e.preventDefault();
   $(".member1").toggle();
@@ -15,7 +15,7 @@ function click1(e) {
 member1.addEventListener("click", click1);
 
 //-------------------------------------------------------------------------------------------------------------------------------------
-const member2 = document.querySelector(".personal_emoji2");
+const member2 = document.querySelector(".person>.two");
 
 function click2(e) {
   e.preventDefault();
@@ -26,7 +26,7 @@ function click2(e) {
 }
 member2.addEventListener("click", click2);
 // //-------------------------------------------------------------------------------------------------------------------------------------
-const member3 = document.querySelector(".personal_emoji3");
+const member3 = document.querySelector(".person>.tree");
 
 function click3(e) {
   e.preventDefault();
