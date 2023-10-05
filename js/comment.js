@@ -6,7 +6,8 @@
 // }
 
 // loginButton.addEventListener("click", loginButtonClick);
-const comment_btn = document.querySelector(".comment_btn");
+
+const comment_btn = document.querySelector("#comment_btn");
 
 function makeComment() {
   let comment = $(".comment_box").val();
@@ -47,7 +48,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-$(".comment_btn").click(async function () {
+comment_btn.click(async function () {
   let doc = { name: "bob", age: 30 };
   await addDoc(collection(db, "comments"), doc);
 });
