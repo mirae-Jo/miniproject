@@ -77,6 +77,6 @@ $(".comment_btn").click(async function () {
 
   let temp_html = `<p>${comment}</p>`;
   $(".comment_wrap").append(temp_html);
-  $(".comment_wrap").val("");
+  $(".comment_box").val("");
 });
 
