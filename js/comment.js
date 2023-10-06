@@ -27,6 +27,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 //-------------------------------------------------------------------------------------------------------------------------------------
 
+
 //민석db넣기
 $("#comment_btn_minseok").click(async function () {
   let comment = $("#comment_box_minseok").val();
@@ -36,7 +37,7 @@ $("#comment_btn_minseok").click(async function () {
     date: new Date() /*Date()는 문자열취급 new Date는 타임스탬프*/,
   };
   await addDoc(collection(db, "comments_minseok"), doc);
-  let temp_html = `<p>${comment}</p>`;
+  let temp_html = `<p class="aaa">${comment}</p>`;
   $("#commented_minseok").prepend(temp_html);
   $("#comment_box_minseok").val("");
 });
@@ -50,8 +51,9 @@ async function get_comments_minseok() {
     const row = doc.data();
     const comment = row['comment'];
 
-    const temp_html = `<p>${comment}</p>`;
+    const temp_html = `<p class="aaa">${comment}</p>`;
     $('#commented_minseok').prepend(temp_html);
+
   });
 }
 get_comments_minseok()
