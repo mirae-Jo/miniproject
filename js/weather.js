@@ -4,7 +4,7 @@ let day = String(today.getUTCDate()).padStart(2, '0');
 let year = today.getUTCFullYear();
 let time = String(today.getHours() - 1).padStart(2, '0');
 today = `${year}${month}${day}`;
-console.log(time)
+
 const API_KEY = 'dFutIVbhP9iCO5wH%2Bn0dhh4QasCgcBUBGWoQNFldz8YNlyL8Jo0b32tAknfEA8N9YfCYdZ3O2PrRscDkO0gX1g%3D%3D'
 
 //민석 weather

@@ -1,27 +1,3 @@
-// const loginInput = document.querySelector(".comment_box");
-// const loginButton = document.querySelector(".comment_btn");
-
-// function loginButtonClick() {
-//   console.log(loginInput.value);
-// }
-
-// loginButton.addEventListener("click", loginButtonClick);
-
-const comment_btn = document.querySelector(".comment_btn");
-
-// function makeComment() {
-//   let comment = $(".comment_box").val();
-
-//   let temp_html = `<div>
-//   <br>
-//   <br>
-//   <p>${comment}</p>
-// </div>`;
-//   $(".comment_wrap").append(temp_html);
-// }
-
-// comment_btn.addEventListener("click", makeComment);
-
 // Firebase 세팅 코드
 
 // Firebase SDK 라이브러리 가져오기
@@ -30,6 +6,8 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase
 import {
   collection,
   addDoc,
+  query,
+  orderBy,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
@@ -47,43 +25,93 @@ const firebaseConfig = {
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+//-------------------------------------------------------------------------------------------------------------------------------------
 
-// comment_btn.click(async function () {
-//   // let doc = { name: "min", age: 25 };
-//   // await addDoc(collection(db, "comments"), doc);
-//   $(".comment_btn").click(async function () {
-//     let comment = $(".comment_box").val();
-//     console.log(comment);
-
-//     let doc = {
-//       comment: comment,
-//       date: new Date() /*Date()는 문자열취급 new Date는 타임스탬프*/,
-//     };
-//     await addDoc(collection(db, "comments"), doc);
-
-//     let temp_html = `<p>${comment}</p>`;
-//     $(".comment_wrap").append(temp_html);
-//     $(".comment_wrap").val("");
-//   });
-// });
-$(".comment_btn").click(async function () {
-  let comment = $(".comment_box").val();
+//민석db넣기
+$("#comment_btn_minseok").click(async function () {
+  let comment = $("#comment_box_minseok").val();
 
   let doc = {
     comment: comment,
     date: new Date() /*Date()는 문자열취급 new Date는 타임스탬프*/,
   };
-  await addDoc(collection(db, "comments"), doc);
+  await addDoc(collection(db, "comments_minseok"), doc);
   let temp_html = `<p>${comment}</p>`;
-  $(".comment_wrap").append(temp_html);
-  $(".comment_box").val("");
+  $("#commented_minseok").append(temp_html);
+  $("#comment_box_minseok").val("");
 });
 
-let docs = await getDocs(collection(db, "comments"));
-docs.forEach((doc) => {
-  let row = doc.data();
-  let message = row["comment"];
+//민석db가져오기
+async function get_comments_minseok() {
+  const q = query(collection(db, "comments_minseok"), orderBy("date", 'desc'))
+  const querySnapshot = await getDocs(q)
 
-  let temp_html = `<br><br><p>${message}</p>`;
-  $(".comment_wrap").append(temp_html);
+  querySnapshot.forEach((doc) => {
+    const row = doc.data();
+    const comment = row['comment'];
+
+    const temp_html = `<p>${comment}</p>`;
+    $('#commented_minseok').append(temp_html);
+  });
+}
+get_comments_minseok()
+//-------------------------------------------------------------------------------------------------------------------------------------
+//미래db넣기
+$("#comment_btn_mirae").click(async function () {
+  let comment = $("#comment_box_mirae").val();
+
+  let doc = {
+    comment: comment,
+    date: new Date() /*Date()는 문자열취급 new Date는 타임스탬프*/,
+  };
+  await addDoc(collection(db, "comments_mirae"), doc);
+  let temp_html = `<p>${comment}</p>`;
+  $("#commented_mirae").append(temp_html);
+  $("#comment_box_mirae").val("");
 });
+
+//미래db가져오기
+async function get_comments_mirae() {
+  const q = query(collection(db, "comments_mirae"), orderBy("date", 'desc'))
+  const querySnapshot = await getDocs(q)
+
+  querySnapshot.forEach((doc) => {
+    const row = doc.data();
+    const comment = row['comment'];
+
+    const temp_html = `<p>${comment}</p>`;
+    $('#commented_mirae').append(temp_html);
+  });
+}
+get_comments_mirae()
+
+//-------------------------------------------------------------------------------------------------------------------------------------
+
+//유나db넣기
+$("#comment_btn_yuna").click(async function () {
+  let comment = $("#comment_box_yuna").val();
+
+  let doc = {
+    comment: comment,
+    date: new Date() /*Date()는 문자열취급 new Date는 타임스탬프*/,
+  };
+  await addDoc(collection(db, "comments_yuna"), doc);
+  let temp_html = `<p>${comment}</p>`;
+  $("#commented_yuna").append(temp_html);
+  $("#comment_box_yuna").val("");
+});
+
+//유나db가져오기
+async function get_comments_yuna() {
+  const q = query(collection(db, "comments_yuna"), orderBy("date", 'desc'))
+  const querySnapshot = await getDocs(q)
+
+  querySnapshot.forEach((doc) => {
+    const row = doc.data();
+    const comment = row['comment'];
+
+    const temp_html = `<p>${comment}</p>`;
+    $('#commented_yuna').append(temp_html);
+  });
+}
+get_comments_yuna()
