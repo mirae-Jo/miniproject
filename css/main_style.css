@@ -189,10 +189,13 @@ header h1 span {
   bottom: 0;
   text-align: center;
   font-size: 1.8rem;
-  letter-spacing: 0.15rem;
+  letter-spacing: 0.1rem;
   line-height: 70px;
   font-family: "bitbit";
   color: #aaa;
+}
+.profile_wrap > .left > .weather p {
+  display: inline-block;
 }
 
 .member .left img {
@@ -234,17 +237,17 @@ header h1 span {
   background-color: #fff;
 }
 
-.commented{
+.commented {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
 }
-.aaa{
+.aaa {
   width: 80%;
   background-color: grey;
 }
-.bbb{
+.bbb {
   width: 80;
   background-color: green;
 }
@@ -258,18 +261,18 @@ header h1 span {
   text-align: center;
   border-bottom: 1px solid #555;
 } */
-.weather_hot{
-  color: red;
+.weather_hot {
+  color: #d83f31;
 }
-.weather_warm{
-  color: yellow;
-}.weather_cool{
-  color: skyblue;
-}.weather_cold{
-  color: blue;
+.weather_warm {
+  color: #ee9322;
 }
-
-
+.weather_cool {
+  color: #8ddfcb;
+}
+.weather_cold {
+  color: #82a0d8;
+}
 
 footer {
   position: fixed;
