@@ -37,13 +37,13 @@ $("#comment_btn_minseok").click(async function () {
   };
   await addDoc(collection(db, "comments_minseok"), doc);
   let temp_html = `<p>${comment}</p>`;
-  $("#commented_minseok").append(temp_html);
+  $("#commented_minseok").prepend(temp_html);
   $("#comment_box_minseok").val("");
 });
 
 //민석db가져오기
 async function get_comments_minseok() {
-  const q = query(collection(db, "comments_minseok"), orderBy("date", 'desc'))
+  const q = query(collection(db, "comments_minseok"), orderBy("date"))
   const querySnapshot = await getDocs(q)
 
   querySnapshot.forEach((doc) => {
@@ -51,7 +51,7 @@ async function get_comments_minseok() {
     const comment = row['comment'];
 
     const temp_html = `<p>${comment}</p>`;
-    $('#commented_minseok').append(temp_html);
+    $('#commented_minseok').prepend(temp_html);
   });
 }
 get_comments_minseok()
@@ -66,13 +66,13 @@ $("#comment_btn_mirae").click(async function () {
   };
   await addDoc(collection(db, "comments_mirae"), doc);
   let temp_html = `<p>${comment}</p>`;
-  $("#commented_mirae").append(temp_html);
+  $("#commented_mirae").prepend(temp_html);
   $("#comment_box_mirae").val("");
 });
 
 //미래db가져오기
 async function get_comments_mirae() {
-  const q = query(collection(db, "comments_mirae"), orderBy("date", 'desc'))
+  const q = query(collection(db, "comments_mirae"), orderBy("date"))
   const querySnapshot = await getDocs(q)
 
   querySnapshot.forEach((doc) => {
@@ -80,7 +80,7 @@ async function get_comments_mirae() {
     const comment = row['comment'];
 
     const temp_html = `<p>${comment}</p>`;
-    $('#commented_mirae').append(temp_html);
+    $('#commented_mirae').prepend(temp_html);
   });
 }
 get_comments_mirae()
@@ -97,13 +97,13 @@ $("#comment_btn_yuna").click(async function () {
   };
   await addDoc(collection(db, "comments_yuna"), doc);
   let temp_html = `<p>${comment}</p>`;
-  $("#commented_yuna").append(temp_html);
+  $("#commented_yuna").prepend(temp_html);
   $("#comment_box_yuna").val("");
 });
 
 //유나db가져오기
 async function get_comments_yuna() {
-  const q = query(collection(db, "comments_yuna"), orderBy("date", 'desc'))
+  const q = query(collection(db, "comments_yuna"), orderBy("date"))
   const querySnapshot = await getDocs(q)
 
   querySnapshot.forEach((doc) => {
@@ -111,7 +111,7 @@ async function get_comments_yuna() {
     const comment = row['comment'];
 
     const temp_html = `<p>${comment}</p>`;
-    $('#commented_yuna').append(temp_html);
+    $('#commented_yuna').prepend(temp_html);
   });
 }
 get_comments_yuna()
