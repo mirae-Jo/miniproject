@@ -1,25 +1,25 @@
 /* reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    width: 1200px;
-    height: 650px;
-    background-color: #fff;
-    font-size: 20px;
-    margin: 0 auto;
-    font-family: "맑은 고딕";
-    color: #333333;
+  width: 1200px;
+  height: 650px;
+  background-color: #eee;
+  font-size: 20px;
+  margin: 0 auto;
+  font-family: "맑은 고딕";
+  color: #333333;
 }
 
 a {
-    text-decoration: none;
-    display: block;
+  text-decoration: none;
+  display: block;
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
