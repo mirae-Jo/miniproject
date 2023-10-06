@@ -50,6 +50,10 @@ header h1 span {
   font-size: 1.8rem;
   margin-top: 20px;
 }
+#ip {
+  text-shadow: -2px 0px #000, 0px 2px #000, 2px 0px #000, 0px -2px #000;
+  color: #00bcf2;
+}
 
 .team_intro p,
 .team_goal p {
@@ -61,6 +65,7 @@ header h1 span {
   display: flex;
   justify-content: space-between;
   margin: 0 4rem;
+  margin-bottom: 60px;
 }
 
 .person {
@@ -83,7 +88,7 @@ header h1 span {
   transform: rotateY(180deg);
 }
 
-.person .card>div {
+.person .card > div {
   position: absolute;
   top: 0;
   left: 0;
@@ -176,7 +181,7 @@ header h1 span {
   background-color: #fff;
 }
 
-.profile_wrap>.left>.mbti {
+.profile_wrap > .left > .mbti {
   width: 500px;
   height: 100px;
   position: absolute;
@@ -219,7 +224,6 @@ header h1 span {
   border-radius: 5px;
   background-color: #fff;
 }
-
 
 /* .member .comment {
   margin: 0 auto;
