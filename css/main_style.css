@@ -83,7 +83,7 @@ header h1 span {
   transform: rotateY(180deg);
 }
 
-.person .card>div {
+.person .card > div {
   position: absolute;
   top: 0;
   left: 0;
@@ -176,7 +176,7 @@ header h1 span {
   background-color: #fff;
 }
 
-.profile_wrap>.left>.mbti {
+.profile_wrap > .left > .mbti {
   width: 500px;
   height: 100px;
   position: absolute;
