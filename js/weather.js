@@ -14,18 +14,18 @@ $.getJSON(
   function (data) {
     let showWeather = data.response.body.items.item[3].obsrValue;
 
-    if (showWeather >= 30) {
-      let teml_html = `민석님 동네는 지금 더워요 ${showWeather}도에요 `;
-      $("#weather_minseok").text(teml_html);
+    if (showWeather >= 30) { 
+      let teml_html = `<p>민석님 동네는 지금 더워요.</p> <p><span class="weather_hot">${showWeather}도</span>에요.</p>`;
+      $("#weather_minseok").append(teml_html);
     } else if (showWeather < 30 && showWeather >= 20) {
-      let teml_html = `민석님 동네는 지금 따뜻해요 ${showWeather}도에요 `;
-      $("#weather_minseok").text(teml_html);
+      let teml_html = `<p>민석님 동네는 지금 따뜻해요.</p> <p><span class="weather_warm">${showWeather}도</span>에요.</p>`;
+      $("#weather_minseok").append(teml_html);
     } else if (showWeather < 20 && showWeather >= 10) {
-      let teml_html = `민석님 동네는 지금 선선해요 ${showWeather}도에요 `;
-      $("#weather_minseok").text(teml_html);
+      let teml_html = `<p>민석님 동네는 지금 선선해요.</p> <p><span class="weather_cool">${showWeather}도</span>에요.</p>`;
+      $("#weather_minseok").append(teml_html);
     } else if (showWeather < 10) {
-      let teml_html = `민석님 동네는 지금 추워요 ${showWeather}도에요 `;
-      $("#weather_minseok").text(teml_html);
+      let teml_html = `<p>민석님 동네는 지금 추워요.</p> <p><span class="weather_cold">${showWeather}도</span>에요.</p>`;
+      $("#weather_minseok").append(teml_html);
     }
   }
 );
@@ -36,17 +36,17 @@ $.getJSON(
     let showWeather = data.response.body.items.item[3].obsrValue;
 
     if (showWeather >= 30) {
-      let teml_html = `미래님 동네는 지금 더워요 ${showWeather}도에요 `;
-      $("#weather_mirae").text(teml_html);
+      let teml_html = `<p>미래님 동네는 지금 더워요.</p> <p><span class="weather_hot">${showWeather}도</span>에요.</p>`;
+      $("#weather_mirae").append(teml_html);
     } else if (showWeather < 30 && showWeather >= 20) {
-      let teml_html = `미래님 동네는 지금 따뜻해요 ${showWeather}도에요 `;
-      $("#weather_mirae").text(teml_html);
+      let teml_html = `<p>미래님 동네는 지금 따뜻해요.</p> <p><span class="weather_warm">${showWeather}도</span>에요.</p>`;
+      $("#weather_mirae").append(teml_html);
     } else if (showWeather < 20 && showWeather >= 10) {
-      let teml_html = `미래님 동네는 지금 선선해요 ${showWeather}도에요 `;
-      $("#weather_mirae").text(teml_html);
+      let teml_html = `<p>미래님 동네는 지금 선선해요.</p> <p><span class="weather_cool">${showWeather}도</span>에요.</p>`;
+      $("#weather_mirae").append(teml_html);
     } else if (showWeather < 10) {
-      let teml_html = `미래님 동네는 지금 추워요 ${showWeather}도에요 `;
-      $("#weather_mirae").text(teml_html);
+      let teml_html = `<p>미래님 동네는 지금 추워요.</p> <p><span class="weather_cold">${showWeather}도</span>에요.</p>`;
+      $("#weather_mirae").append(teml_html);
     }
   }
 );
@@ -57,17 +57,17 @@ $.getJSON(
     let showWeather = data.response.body.items.item[3].obsrValue;
 
     if (showWeather >= 30) {
-      let teml_html = `유나님 동네는 지금 더워요 ${showWeather}도에요 `;
-      $("#weather_yuna").text(teml_html);
+      let teml_html = `<p>유나님 동네는 지금 더워요.</p> <p><span class="weather_hot">${showWeather}도</span>에요.</p>`;
+      $("#weather_yuna").append(teml_html);
     } else if (showWeather < 30 && showWeather >= 20) {
-      let teml_html = `유나님 동네는 지금 따뜻해요 ${showWeather}도에요 `;
-      $("#weather_yuna").text(teml_html);
+      let teml_html = `<p>유나님 동네는 지금 따뜻해요.</p> <p><span class="weather_warm">${showWeather}도</span>에요.</p>`;
+      $("#weather_yuna").append(teml_html);
     } else if (showWeather < 20 && showWeather >= 10) {
-      let teml_html = `유나님 동네는 지금 선선해요 ${showWeather}도에요 `;
-      $("#weather_yuna").text(teml_html);
+      let teml_html = `<p>유나님 동네는 지금 선선해요.</p> <p><span class="weather_cool">${showWeather}도</span>에요.</p>`;
+      $("#weather_yuna").append(teml_html);
     } else if (showWeather < 10) {
-      let teml_html = `유나님 동네는 지금 추워요 ${showWeather}도에요 `;
-      $("#weather_yuna").text(teml_html);
+      let teml_html = `<p>유나님 동네는 지금 추워요.</p> <p><span class="weather_cold">${showWeather}도</span>에요.</p>`;
+      $("#weather_yuna").append(teml_html);
     }
   }
 );
