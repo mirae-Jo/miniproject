@@ -252,11 +252,11 @@ header h1 span {
 }
 .aaa {
   width: 100%;
-  background-color: grey;
+  background-color: rgb(219, 217, 217);
 }
 .bbb {
-  width: 80%;
-  background-color: green;
+  width: 100%;
+  background-color: rgb(240, 238, 238);
 }
 /* .member .comment {
   margin: 0 auto;
