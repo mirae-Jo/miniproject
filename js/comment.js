@@ -37,9 +37,7 @@ $("#comment_btn_minseok").click(async function () {
     date: new Date()
   };
   await addDoc(collection(db, "comments_minseok"), doc);
-  let temp_html = `<p class="aaa">${comment}</p>`;
-  $("#commented_minseok").prepend(temp_html);
-  $("#comment_box_minseok").val("");
+  window.location.reload()
 });
 
 //민석db가져오기
@@ -77,12 +75,10 @@ $("#comment_btn_mirae").click(async function () {
 
   let doc = {
     comment: comment,
-    date: new Date() /*Date()는 문자열취급 new Date는 타임스탬프*/,
+    date: new Date()
   };
   await addDoc(collection(db, "comments_mirae"), doc);
-  let temp_html = `<p>${comment}</p>`;
-  $("#commented_mirae").prepend(temp_html);
-  $("#comment_box_mirae").val("");
+  window.location.reload()
 });
 
 //미래db가져오기
@@ -119,12 +115,10 @@ $("#comment_btn_yuna").click(async function () {
 
   let doc = {
     comment: comment,
-    date: new Date() /*Date()는 문자열취급 new Date는 타임스탬프*/,
+    date: new Date()
   };
   await addDoc(collection(db, "comments_yuna"), doc);
-  let temp_html = `<p>${comment}</p>`;
-  $("#commented_yuna").prepend(temp_html);
-  $("#comment_box_yuna").val("");
+  window.location.reload()
 });
 
 //유나db가져오기
