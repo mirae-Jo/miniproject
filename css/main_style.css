@@ -286,3 +286,9 @@ footer {
   bottom: 0;
   right: 0;
 }
+.up {
+  position: fixed;
+  bottom: 40%;
+  right: 20px;
+  font-size: 25px;
+}
