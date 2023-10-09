@@ -31,13 +31,17 @@ const db = getFirestore(app);
 //민석db넣기
 $("#comment_btn_minseok").click(async function () {
   let comment = $("#comment_box_minseok").val();
+  if (comment === '잘생겼어요') {
+    alert('잘못된 입력입니다.')
 
-  let doc = {
-    comment: comment,
-    date: new Date()
-  };
-  await addDoc(collection(db, "comments_minseok"), doc);
-  window.location.reload()
+  } else {
+    let doc = {
+      comment: comment,
+      date: new Date()
+    };
+    await addDoc(collection(db, "comments_minseok"), doc);
+    window.location.reload()
+  }
 });
 
 //민석db가져오기
