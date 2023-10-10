@@ -1,5 +1,3 @@
-// Firebase 세팅 코드
-
 // Firebase SDK 라이브러리 가져오기
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
@@ -29,7 +27,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 //-------------------------------------------------------------------------------------------------------------------------------------
 
-//민석db넣기
+//민석 db넣기
 $("#comment_btn_minseok").click(async function () {
   let comment = $("#comment_box_minseok").val();
   if (comment === "잘생겼어요") {
@@ -46,15 +44,14 @@ $("#comment_btn_minseok").click(async function () {
   }
 });
 
+//민석 db삭제
 async function minseokHandleDeleteBtn(e) {
   const goodbye_comment = e.target.parentElement.id;
   await deleteDoc(doc(db, "comments_minseok", goodbye_comment));
   location.reload();
 }
 
-//민석db가져오기
-const minseok_comment_list = [];
-
+//민석 db가져오기
 async function get_comments_minseok() {
   const q = query(collection(db, "comments_minseok"), orderBy("date"));
   const querySnapshot = await getDocs(q);
@@ -62,7 +59,6 @@ async function get_comments_minseok() {
   querySnapshot.forEach((doc) => {
     const row = doc.data();
     const comment = row["comment"];
-    minseok_comment_list.push(comment);
     const teml_html = `<p class = 'commentColor'id='${doc.id}'>${comment}<img src="./img/delete_btn.png" class='delete_btn minseok_delete_btn'></p>`;
     $("#commented_minseok").prepend(teml_html);
   });
@@ -72,9 +68,10 @@ async function get_comments_minseok() {
   });
 }
 get_comments_minseok();
-//-------------------------------------------------------------------------------------------------------------------------------------
-//미래db넣기
 
+//-------------------------------------------------------------------------------------------------------------------------------------
+
+//미래 db넣기
 $("#comment_btn_mirae").click(async function () {
   let comment = $("#comment_box_mirae").val();
   if (comment == "예뻐요") {
@@ -89,6 +86,7 @@ $("#comment_btn_mirae").click(async function () {
   }
 });
 
+//미래 db삭제
 async function miraeHandleDeleteBtn(event) {
   const commentId = event.target.parentElement.id;
   await deleteDoc(doc(db, "comments_mirae", commentId));
@@ -103,7 +101,6 @@ async function get_comments_mirae() {
   querySnapshot.forEach((doc) => {
     const row = doc.data();
     const comment = row["comment"];
-    minseok_comment_list.push(comment);
     const teml_html = `<p class = 'commentColor'id='${doc.id}'>${comment}<img src="./img/delete_btn.png" class='delete_btn mirae_delete_btn'></p>`;
     $("#commented_mirae").prepend(teml_html);
   });
@@ -117,8 +114,6 @@ get_comments_mirae();
 //-------------------------------------------------------------------------------------------------------------------------------------
 
 //유나db넣기
-const yuna_comment_list = [];
-
 $("#comment_btn_yuna").click(async function () {
   let comment = $("#comment_box_yuna").val();
   if (comment == "별로에요") {
@@ -132,6 +127,8 @@ $("#comment_btn_yuna").click(async function () {
     window.location.reload();
   }
 });
+
+//유나 db삭제
 async function yunaHandleDeleteBtn(e) {
   const goodbye_comment = e.target.parentElement.id;
   await deleteDoc(doc(db, "comments_yuna", goodbye_comment));
@@ -146,7 +143,6 @@ async function get_comments_yuna() {
   querySnapshot.forEach((doc) => {
     const row = doc.data();
     const comment = row["comment"];
-    minseok_comment_list.push(comment);
     const teml_html = `<p class = 'commentColor'id='${doc.id}'>${comment}<img src="./img/delete_btn.png" class='delete_btn yuna_delete_btn'></p>`;
     $("#commented_yuna").prepend(teml_html);
   });
