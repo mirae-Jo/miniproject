@@ -1,8 +1,10 @@
-let today = new Date();
-let month = String(today.getUTCMonth() + 1).padStart(2, "0"); //months from 1-12
-let day = String(today.getUTCDate()).padStart(2, "0");
-let year = today.getUTCFullYear();
-let time = String(today.getHours() - 1).padStart(2, "0");// 0~9시
+let today = new Date().toLocaleDateString('ko',{
+  hour: "2-digit"
+})
+let year = today.slice(0,4)
+let month = today.slice(6,8)
+let day = today.slice(10,12)
+let time = today.slice(17,19)
 today = `${year}${month}${day}`;
 
 const API_KEY =
