@@ -84,13 +84,6 @@ $("#comment_btn_mirae").click(async function () {
     await addDoc(collection(db, "comments_mirae"), doc);
     window.location.reload();
   }
-
-  let doc = {
-    comment: comment,
-    date: new Date(),
-  };
-  await addDoc(collection(db, "comments_mirae"), doc);
-  window.location.reload();
 });
 
 //미래db가져오기
