@@ -9,7 +9,7 @@ import {
   query,
   orderBy,
   deleteDoc,
-  doc
+  doc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
@@ -34,8 +34,8 @@ $("#comment_btn_minseok").click(async function () {
   let comment = $("#comment_box_minseok").val();
   if (comment === "잘생겼어요") {
     alert("잘못된 입력입니다.");
-  } else if (comment === '멋져요') {
-    window.open('https://www.youtube.com/shorts/eLpP7DkYiVE')
+  } else if (comment === "멋져요") {
+    window.open("https://www.youtube.com/shorts/eLpP7DkYiVE");
   } else {
     let doc = {
       comment: comment,
@@ -47,9 +47,9 @@ $("#comment_btn_minseok").click(async function () {
 });
 
 async function minseokHandleDeleteBtn(e) {
-  const goodbye_comment = e.target.parentElement.id
+  const goodbye_comment = e.target.parentElement.id;
   await deleteDoc(doc(db, "comments_minseok", goodbye_comment));
-  location.reload()
+  location.reload();
 }
 
 //민석db가져오기
@@ -60,17 +60,16 @@ async function get_comments_minseok() {
   const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach((doc) => {
-
     const row = doc.data();
-    const comment = row['comment'];
-    minseok_comment_list.push(comment)
-    const teml_html = `<p class = 'commentColor'id='${doc.id}'>${comment}<button class='delete_btn minseok_delete_btn'>삭제</button></p>`
-    $('#commented_minseok').prepend(teml_html);
+    const comment = row["comment"];
+    minseok_comment_list.push(comment);
+    const teml_html = `<p class = 'commentColor'id='${doc.id}'>${comment}<img src="./img/delete_btn.png" class='delete_btn minseok_delete_btn'></p>`;
+    $("#commented_minseok").prepend(teml_html);
   });
-  const delete_btns = document.querySelectorAll('.minseok_delete_btn')
+  const delete_btns = document.querySelectorAll(".minseok_delete_btn");
   delete_btns.forEach((a) => {
-    a.addEventListener('click', minseokHandleDeleteBtn)
-  })
+    a.addEventListener("click", minseokHandleDeleteBtn);
+  });
 }
 get_comments_minseok();
 //-------------------------------------------------------------------------------------------------------------------------------------
@@ -90,8 +89,10 @@ $("#comment_btn_mirae").click(async function () {
   }
 });
 
-async function miraeHandleDeleteBtn() {
-
+async function miraeHandleDeleteBtn(event) {
+  const commentId = event.target.parentElement.id;
+  await deleteDoc(doc(db, "comments_mirae", commentId));
+  window.location.reload();
 }
 
 //미래db가져오기
@@ -100,16 +101,15 @@ async function get_comments_mirae() {
   const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach((doc) => {
-
     const row = doc.data();
-    const comment = row['comment'];
-    minseok_comment_list.push(comment)
-    const teml_html = `<p class = 'commentColor'id='${doc.id}'>${comment}<button class='delete_btn mirae_delete_btn'>삭제</button></p>`
-    $('#commented_mirae').prepend(teml_html);
+    const comment = row["comment"];
+    minseok_comment_list.push(comment);
+    const teml_html = `<p class = 'commentColor'id='${doc.id}'>${comment}<img src="./img/delete_btn.png" class='delete_btn mirae_delete_btn'></p>`;
+    $("#commented_mirae").prepend(teml_html);
   });
-  const delete_btns = document.querySelectorAll('.mirae_delete_btn')
+  const delete_btns = document.querySelectorAll(".mirae_delete_btn");
   delete_btns.forEach((a) => {
-    a.addEventListener('click', miraeHandleDeleteBtn)
+    a.addEventListener("click", miraeHandleDeleteBtn);
   });
 }
 get_comments_mirae();
@@ -133,27 +133,26 @@ $("#comment_btn_yuna").click(async function () {
   }
 });
 async function yunaHandleDeleteBtn(e) {
-  const goodbye_comment = e.target.parentElement.id
+  const goodbye_comment = e.target.parentElement.id;
   await deleteDoc(doc(db, "comments_yuna", goodbye_comment));
-  location.reload()
+  location.reload();
 }
 
-//미래db가져오기
+//유나db가져오기
 async function get_comments_yuna() {
   const q = query(collection(db, "comments_yuna"), orderBy("date"));
   const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach((doc) => {
-
     const row = doc.data();
-    const comment = row['comment'];
-    minseok_comment_list.push(comment)
-    const teml_html = `<p class = 'commentColor'id='${doc.id}'>${comment}<button class='delete_btn yuna_delete_btn'>삭제</button></p>`
-    $('#commented_yuna').prepend(teml_html);
+    const comment = row["comment"];
+    minseok_comment_list.push(comment);
+    const teml_html = `<p class = 'commentColor'id='${doc.id}'>${comment}<img src="./img/delete_btn.png" class='delete_btn yuna_delete_btn'></p>`;
+    $("#commented_yuna").prepend(teml_html);
   });
-  const delete_btns = document.querySelectorAll('.yuna_delete_btn')
+  const delete_btns = document.querySelectorAll(".yuna_delete_btn");
   delete_btns.forEach((a) => {
-    a.addEventListener('click', yunaHandleDeleteBtn)
+    a.addEventListener("click", yunaHandleDeleteBtn);
   });
 }
 get_comments_yuna();
