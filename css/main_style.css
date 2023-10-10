@@ -207,6 +207,9 @@ header h1 span {
   height: 550px;
   object-fit: cover;
 }
+.member2 img {
+  object-position: 0 0;
+}
 
 .member .right p {
   margin-bottom: 35px;
