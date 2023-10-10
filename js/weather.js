@@ -2,7 +2,7 @@ let today = new Date();
 let month = String(today.getUTCMonth() + 1).padStart(2, "0"); //months from 1-12
 let day = String(today.getUTCDate()).padStart(2, "0");
 let year = today.getUTCFullYear();
-let time = String(today.getHours() - 1).padStart(2, "0");// 에러남
+let time = String(today.getHours() - 1).padStart(2, "0");// 0~9시
 today = `${year}${month}${day}`;
 
 const API_KEY =
@@ -12,7 +12,6 @@ const API_KEY =
 $.getJSON(
   `https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=${API_KEY}&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${today}&base_time=${time}00&nx=91&ny=76`,
   function (data) {
-    console.log(data)
     let showWeather = data.response.body.items.item[3].obsrValue;
 
     if (showWeather >= 30) { 

@@ -8,6 +8,7 @@ import {
   addDoc,
   query,
   orderBy,
+  deleteDoc
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
@@ -57,8 +58,8 @@ async function get_comments_minseok() {
     minseok_comment_list.push(comment)
   });
 
-  minseok_comment_list.forEach((a) => {
-    const commentColor = minseok_comment_list.indexOf(a) % 2
+  minseok_comment_list.forEach((a, index) => {
+    const commentColor = minseok_comment_list.index % 2
     if (commentColor === 0) {
       const temp_html = `<p class='aaa'>${a}</p>`;
       $('#commented_minseok').prepend(temp_html);
@@ -66,9 +67,21 @@ async function get_comments_minseok() {
       const temp_html = `<p class='bbb'>${a}</p>`;
       $('#commented_minseok').prepend(temp_html);
     }
-    console.log(minseok_comment_list.indexOf(a))
+    console.log(minseok_comment_list.index)
   });
 }
+//   minseok_comment_list.forEach((a, index) => {
+//     const commentColor = minseok_comment_list.indexOf(a) % 2
+//     if (commentColor === 0) {
+//       const temp_html = `<p class='aaa'>${a}</p>`;
+//       $('#commented_minseok').prepend(temp_html);
+//     } else {
+//       const temp_html = `<p class='bbb'>${a}</p>`;
+//       $('#commented_minseok').prepend(temp_html);
+//     }
+//     console.log(minseok_comment_list.indexOf(a))
+//   });
+// }
 get_comments_minseok()
 //-------------------------------------------------------------------------------------------------------------------------------------
 //미래db넣기
