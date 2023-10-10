@@ -51,25 +51,21 @@ async function get_comments_minseok() {
   const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach((doc) => {
-    const row = doc.data();
-    const comment = row["comment"];
-    minseok_comment_list.push(comment);
-  });
-  minseok_comment_list.forEach((a, index) => {
-    const delBtn = new Image();
-    delBtn.src = "./img/delete_btn.png";
 
-    const commentColor =
-      index % 2 == 0 ? `<p class='aaa'>${a}</p>` : `<p class='bbb'>${a}</p>`;
-    $("#commented_minseok").prepend(commentColor);
-    $(".aaa").append(delBtn);
-    $(".bbb").append(delBtn);
+    const row = doc.data();
+    const comment = row['comment'];
+    minseok_comment_list.push(comment)
+    const teml_html = `<p class = 'commentColor'id='${doc.id}'>${comment}<button class='delete_btn'>삭제</button></p>`
+    $('#commented_minseok').prepend(teml_html);
   });
+  const delete_btns = document.querySelectorAll('.delete_btn')
+  delete_btns.forEach((a) => {
+    a.addEventListener('click', handleDeleteBtn)
+  })
 }
 get_comments_minseok();
 //-------------------------------------------------------------------------------------------------------------------------------------
 //미래db넣기
-const mirae_comment_list = [];
 
 $("#comment_btn_mirae").click(async function () {
   let comment = $("#comment_box_mirae").val();
@@ -85,24 +81,26 @@ $("#comment_btn_mirae").click(async function () {
   }
 });
 
+async function handleDeleteBtn() {
+  console.log('hi')
+}
+
 //미래db가져오기
 async function get_comments_mirae() {
   const q = query(collection(db, "comments_mirae"), orderBy("date"));
   const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach((doc) => {
+
     const row = doc.data();
-    const comment = row["comment"];
-    mirae_comment_list.push(comment);
+    const comment = row['comment'];
+    minseok_comment_list.push(comment)
+    const teml_html = `<p class = 'commentColor'id='${doc.id}'>${comment}<button class='delete_btn'>삭제</button></p>`
+    $('#commented_mirae').prepend(teml_html);
   });
-
-  mirae_comment_list.forEach((a, index) => {
-    const delBtn = new Image();
-    delBtn.src = "./img/delete_btn.png";
-
-    const commentColor =
-      index % 2 == 0 ? `<p class='aaa'>${a}</p>` : `<p class='bbb'>${a}</p>`;
-    $("#commented_mirae").prepend(commentColor);
+  const delete_btns = document.querySelectorAll('.delete_btn')
+  delete_btns.forEach((a) => {
+    a.addEventListener('click', handleDeleteBtn)
   });
 }
 get_comments_mirae();
