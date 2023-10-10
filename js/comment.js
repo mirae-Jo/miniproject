@@ -56,13 +56,8 @@ async function get_comments_minseok() {
     minseok_comment_list.push(comment);
   });
 
-<<<<<<< HEAD
-  minseok_comment_list.forEach((a, index) => {
-    const commentColor = minseok_comment_list.index % 2
-=======
   minseok_comment_list.forEach((a) => {
     const commentColor = minseok_comment_list.indexOf(a) % 2;
->>>>>>> ed273be8389a38cd4763191cad6682ce84c27e98
     if (commentColor === 0) {
       const temp_html = `<p class='aaa'>${a}</p>`;
       $("#commented_minseok").prepend(temp_html);
@@ -70,29 +65,10 @@ async function get_comments_minseok() {
       const temp_html = `<p class='bbb'>${a}</p>`;
       $("#commented_minseok").prepend(temp_html);
     }
-<<<<<<< HEAD
-    console.log(minseok_comment_list.index)
-  });
-}
-//   minseok_comment_list.forEach((a, index) => {
-//     const commentColor = minseok_comment_list.indexOf(a) % 2
-//     if (commentColor === 0) {
-//       const temp_html = `<p class='aaa'>${a}</p>`;
-//       $('#commented_minseok').prepend(temp_html);
-//     } else {
-//       const temp_html = `<p class='bbb'>${a}</p>`;
-//       $('#commented_minseok').prepend(temp_html);
-//     }
-//     console.log(minseok_comment_list.indexOf(a))
-//   });
-// }
-get_comments_minseok()
-=======
     console.log(minseok_comment_list.indexOf(a));
   });
 }
 get_comments_minseok();
->>>>>>> ed273be8389a38cd4763191cad6682ce84c27e98
 //-------------------------------------------------------------------------------------------------------------------------------------
 //미래db넣기
 const mirae_comment_list = [];
@@ -142,13 +118,16 @@ const yuna_comment_list = [];
 
 $("#comment_btn_yuna").click(async function () {
   let comment = $("#comment_box_yuna").val();
-
-  let doc = {
-    comment: comment,
-    date: new Date(),
-  };
-  await addDoc(collection(db, "comments_yuna"), doc);
-  window.location.reload();
+ if(comment == '별로에요') {
+  alert('잘못입력했습니다.')
+ } else {
+   let doc = {
+     comment: comment,
+     date: new Date(),
+   };
+   await addDoc(collection(db, "comments_yuna"), doc);
+   window.location.reload();
+ }
 });
 
 //유나db가져오기
