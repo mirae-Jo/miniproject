@@ -87,7 +87,7 @@ header h1 span {
   transform: rotateY(180deg);
 }
 
-.person .card>div {
+.person .card > div {
   position: absolute;
   top: 0;
   left: 0;
@@ -185,7 +185,7 @@ header h1 span {
   text-align: center;
 }
 
-.profile_wrap>.left>.weather {
+.profile_wrap > .left > .weather {
   width: 500px;
   height: 70px;
   position: absolute;
@@ -198,7 +198,7 @@ header h1 span {
   color: #aaa;
 }
 
-.profile_wrap>.left>.weather p {
+.profile_wrap > .left > .weather p {
   display: inline-block;
 }
 
@@ -243,8 +243,13 @@ header h1 span {
 
 .delete_btn {
   position: absolute;
-  right: 10px;
-  top: 20px;
+  right: 18px;
+  top: 24px;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  border: 0;
+  background: transparent;
 }
 
 .commented {
@@ -260,7 +265,9 @@ header h1 span {
   text-indent: 15px;
   position: relative;
 }
-
+.commented p:nth-child(even) {
+  background-color: #bbb;
+}
 .aaa {
   width: 100%;
   background-color: rgb(219, 217, 217);
