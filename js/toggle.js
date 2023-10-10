@@ -9,7 +9,7 @@ function click1(e) {
   $(".member1").toggle();
   $(".member2").css("display", "none");
   $(".member3").css("display", "none");
-  window.scrollTo(0, 1200);
+  window.scrollTo(0, 1150);
 }
 
 member1.addEventListener("click", click1);
@@ -22,18 +22,19 @@ function click2(e) {
   $(".member2").toggle();
   $(".member1").css("display", "none");
   $(".member3").css("display", "none");
-  window.scrollTo(0, 1200);
+  window.scrollTo(0, 1150);
 }
+
 member2.addEventListener("click", click2);
 // //-------------------------------------------------------------------------------------------------------------------------------------
 const member3 = document.querySelector(".person>.tree");
-
 function click3(e) {
   e.preventDefault();
   $(".member3").toggle();
   $(".member2").css("display", "none");
   $(".member1").css("display", "none");
-  window.scrollTo(0, 1200);
+  window.scrollTo(0, 1150);
 }
+
 member3.addEventListener("click", click3);
 // //-------------------------------------------------------------------------------------------------------------------------------------
