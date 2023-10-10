@@ -57,12 +57,17 @@ async function get_comments_minseok() {
 
   minseok_comment_list.forEach((a) => {
     const commentColor = minseok_comment_list.indexOf(a) % 2;
+    const delBtn = new Image();
+    delBtn.src = "./img/delete_btn.png";
+
     if (commentColor === 0) {
       const temp_html = `<p class='aaa'>${a}</p>`;
       $("#commented_minseok").prepend(temp_html);
+      $(".aaa").append(delBtn);
     } else {
       const temp_html = `<p class='bbb'>${a}</p>`;
       $("#commented_minseok").prepend(temp_html);
+      $(".bbb").append(delBtn);
     }
     console.log(minseok_comment_list.indexOf(a));
   });
@@ -99,12 +104,17 @@ async function get_comments_mirae() {
 
   mirae_comment_list.forEach((a) => {
     const commentColor = mirae_comment_list.indexOf(a) % 2;
+    const delBtn = new Image();
+    delBtn.src = "./img/delete_btn.png";
+
     if (commentColor === 0) {
       const temp_html = `<p class='aaa'>${a}</p>`;
       $("#commented_mirae").prepend(temp_html);
+      $(".aaa").append(delBtn);
     } else {
       const temp_html = `<p class='bbb'>${a}</p>`;
       $("#commented_mirae").prepend(temp_html);
+      $(".bbb").append(delBtn);
     }
   });
 }
@@ -139,12 +149,17 @@ async function get_comments_yuna() {
 
   yuna_comment_list.forEach((a) => {
     const commentColor = yuna_comment_list.indexOf(a) % 2;
+    const delBtn = new Image();
+    delBtn.src = "./img/delete_btn.png";
+
     if (commentColor === 0) {
       const temp_html = `<p class='aaa'>${a}</p>`;
       $("#commented_yuna").prepend(temp_html);
+      $(".aaa").append(delBtn);
     } else {
       const temp_html = `<p class='bbb'>${a}</p>`;
       $("#commented_yuna").prepend(temp_html);
+      $(".bbb").append(delBtn);
     }
   });
 }

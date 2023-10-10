@@ -249,6 +249,15 @@ header h1 span {
   line-height: 65px;
   font-size: 1rem;
   text-indent: 15px;
+  position: relative;
+}
+.commented p img {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  opacity: 0.5;
 }
 .aaa {
   width: 100%;
