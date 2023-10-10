@@ -27,7 +27,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 //-------------------------------------------------------------------------------------------------------------------------------------
 
-
 //민석db넣기
 $("#comment_btn_minseok").click(async function () {
   let comment = $("#comment_box_minseok").val();
@@ -44,19 +43,18 @@ $("#comment_btn_minseok").click(async function () {
 
 //민석db가져오기
 async function get_comments_minseok() {
-  const q = query(collection(db, "comments_minseok"), orderBy("date"))
-  const querySnapshot = await getDocs(q)
+  const q = query(collection(db, "comments_minseok"), orderBy("date"));
+  const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach((doc) => {
     const row = doc.data();
-    const comment = row['comment'];
+    const comment = row["comment"];
 
     const temp_html = `<p class="aaa">${comment}</p>`;
-    $('#commented_minseok').prepend(temp_html);
-
+    $("#commented_minseok").prepend(temp_html);
   });
 }
-get_comments_minseok()
+get_comments_minseok();
 //-------------------------------------------------------------------------------------------------------------------------------------
 //미래db넣기
 $("#comment_btn_mirae").click(async function () {
@@ -74,18 +72,18 @@ $("#comment_btn_mirae").click(async function () {
 
 //미래db가져오기
 async function get_comments_mirae() {
-  const q = query(collection(db, "comments_mirae"), orderBy("date"))
-  const querySnapshot = await getDocs(q)
+  const q = query(collection(db, "comments_mirae"), orderBy("date"));
+  const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach((doc) => {
     const row = doc.data();
-    const comment = row['comment'];
+    const comment = row["comment"];
 
     const temp_html = `<p>${comment}</p>`;
-    $('#commented_mirae').prepend(temp_html);
+    $("#commented_mirae").prepend(temp_html);
   });
 }
-get_comments_mirae()
+get_comments_mirae();
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 
@@ -105,15 +103,15 @@ $("#comment_btn_yuna").click(async function () {
 
 //유나db가져오기
 async function get_comments_yuna() {
-  const q = query(collection(db, "comments_yuna"), orderBy("date"))
-  const querySnapshot = await getDocs(q)
+  const q = query(collection(db, "comments_yuna"), orderBy("date"));
+  const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach((doc) => {
     const row = doc.data();
-    const comment = row['comment'];
+    const comment = row["comment"];
 
     const temp_html = `<p>${comment}</p>`;
-    $('#commented_yuna').prepend(temp_html);
+    $("#commented_yuna").prepend(temp_html);
   });
 }
-get_comments_yuna()
+get_comments_yuna();
