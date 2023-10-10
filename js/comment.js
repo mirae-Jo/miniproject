@@ -8,6 +8,7 @@ import {
   addDoc,
   query,
   orderBy,
+  deleteDoc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
@@ -54,22 +55,15 @@ async function get_comments_minseok() {
     const comment = row["comment"];
     minseok_comment_list.push(comment);
   });
-
-  minseok_comment_list.forEach((a) => {
-    const commentColor = minseok_comment_list.indexOf(a) % 2;
+  minseok_comment_list.forEach((a, index) => {
     const delBtn = new Image();
     delBtn.src = "./img/delete_btn.png";
 
-    if (commentColor === 0) {
-      const temp_html = `<p class='aaa'>${a}</p>`;
-      $("#commented_minseok").prepend(temp_html);
-      $(".aaa").append(delBtn);
-    } else {
-      const temp_html = `<p class='bbb'>${a}</p>`;
-      $("#commented_minseok").prepend(temp_html);
-      $(".bbb").append(delBtn);
-    }
-    console.log(minseok_comment_list.indexOf(a));
+    const commentColor =
+      index % 2 == 0 ? `<p class='aaa'>${a}</p>` : `<p class='bbb'>${a}</p>`;
+    $("#commented_minseok").prepend(commentColor);
+    $(".aaa").append(delBtn);
+    $(".bbb").append(delBtn);
   });
 }
 get_comments_minseok();
@@ -102,20 +96,13 @@ async function get_comments_mirae() {
     mirae_comment_list.push(comment);
   });
 
-  mirae_comment_list.forEach((a) => {
-    const commentColor = mirae_comment_list.indexOf(a) % 2;
+  mirae_comment_list.forEach((a, index) => {
     const delBtn = new Image();
     delBtn.src = "./img/delete_btn.png";
 
-    if (commentColor === 0) {
-      const temp_html = `<p class='aaa'>${a}</p>`;
-      $("#commented_mirae").prepend(temp_html);
-      $(".aaa").append(delBtn);
-    } else {
-      const temp_html = `<p class='bbb'>${a}</p>`;
-      $("#commented_mirae").prepend(temp_html);
-      $(".bbb").append(delBtn);
-    }
+    const commentColor =
+      index % 2 == 0 ? `<p class='aaa'>${a}</p>` : `<p class='bbb'>${a}</p>`;
+    $("#commented_mirae").prepend(commentColor);
   });
 }
 get_comments_mirae();
@@ -127,13 +114,16 @@ const yuna_comment_list = [];
 
 $("#comment_btn_yuna").click(async function () {
   let comment = $("#comment_box_yuna").val();
-
-  let doc = {
-    comment: comment,
-    date: new Date(),
-  };
-  await addDoc(collection(db, "comments_yuna"), doc);
-  window.location.reload();
+  if (comment == "별로에요") {
+    alert("잘못입력했습니다.");
+  } else {
+    let doc = {
+      comment: comment,
+      date: new Date(),
+    };
+    await addDoc(collection(db, "comments_yuna"), doc);
+    window.location.reload();
+  }
 });
 
 //유나db가져오기
@@ -147,20 +137,10 @@ async function get_comments_yuna() {
     yuna_comment_list.push(comment);
   });
 
-  yuna_comment_list.forEach((a) => {
-    const commentColor = yuna_comment_list.indexOf(a) % 2;
-    const delBtn = new Image();
-    delBtn.src = "./img/delete_btn.png";
-
-    if (commentColor === 0) {
-      const temp_html = `<p class='aaa'>${a}</p>`;
-      $("#commented_yuna").prepend(temp_html);
-      $(".aaa").append(delBtn);
-    } else {
-      const temp_html = `<p class='bbb'>${a}</p>`;
-      $("#commented_yuna").prepend(temp_html);
-      $(".bbb").append(delBtn);
-    }
+  yuna_comment_list.forEach((a, index) => {
+    const commentColor =
+      index % 2 == 0 ? `<p class='aaa'>${a}</p>` : `<p class='bbb'>${a}</p>`;
+    $("#commented_yuna").prepend(commentColor);
   });
 }
 get_comments_yuna();
