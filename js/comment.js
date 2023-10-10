@@ -104,16 +104,16 @@ const yuna_comment_list = [];
 
 $("#comment_btn_yuna").click(async function () {
   let comment = $("#comment_box_yuna").val();
-  if (comment === "못생겼어요") {
-    alert("잘못된 입력입니다.");
-  } else {
-    let doc = {
-      comment: comment,
-      date: new Date(),
-    };
-    await addDoc(collection(db, "comments_yuna"), doc);
-    window.location.reload();
-  }
+ if(comment == '별로에요') {
+  alert('잘못입력했습니다.')
+ } else {
+   let doc = {
+     comment: comment,
+     date: new Date(),
+   };
+   await addDoc(collection(db, "comments_yuna"), doc);
+   window.location.reload();
+ }
 });
 
 //유나db가져오기
