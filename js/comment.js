@@ -28,45 +28,49 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 //-------------------------------------------------------------------------------------------------------------------------------------
 
-
 //민석db넣기
 $("#comment_btn_minseok").click(async function () {
   let comment = $("#comment_box_minseok").val();
-  if (comment === '잘생겼어요') {
-    alert('잘못된 입력입니다.')
-
+  if (comment === "잘생겼어요") {
+    alert("잘못된 입력입니다.");
   } else {
     let doc = {
       comment: comment,
-      date: new Date()
+      date: new Date(),
     };
     await addDoc(collection(db, "comments_minseok"), doc);
-    window.location.reload()
+    window.location.reload();
   }
 });
 
 //민석db가져오기
-const minseok_comment_list = []
+const minseok_comment_list = [];
 
 async function get_comments_minseok() {
-  const q = query(collection(db, "comments_minseok"), orderBy("date"))
-  const querySnapshot = await getDocs(q)
+  const q = query(collection(db, "comments_minseok"), orderBy("date"));
+  const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach((doc) => {
     const row = doc.data();
-    const comment = row['comment'];
-    minseok_comment_list.push(comment)
+    const comment = row["comment"];
+    minseok_comment_list.push(comment);
   });
 
+<<<<<<< HEAD
   minseok_comment_list.forEach((a, index) => {
     const commentColor = minseok_comment_list.index % 2
+=======
+  minseok_comment_list.forEach((a) => {
+    const commentColor = minseok_comment_list.indexOf(a) % 2;
+>>>>>>> ed273be8389a38cd4763191cad6682ce84c27e98
     if (commentColor === 0) {
       const temp_html = `<p class='aaa'>${a}</p>`;
-      $('#commented_minseok').prepend(temp_html);
+      $("#commented_minseok").prepend(temp_html);
     } else {
       const temp_html = `<p class='bbb'>${a}</p>`;
-      $('#commented_minseok').prepend(temp_html);
+      $("#commented_minseok").prepend(temp_html);
     }
+<<<<<<< HEAD
     console.log(minseok_comment_list.index)
   });
 }
@@ -83,44 +87,53 @@ async function get_comments_minseok() {
 //   });
 // }
 get_comments_minseok()
+=======
+    console.log(minseok_comment_list.indexOf(a));
+  });
+}
+get_comments_minseok();
+>>>>>>> ed273be8389a38cd4763191cad6682ce84c27e98
 //-------------------------------------------------------------------------------------------------------------------------------------
 //미래db넣기
-const mirae_comment_list = []
+const mirae_comment_list = [];
 
 $("#comment_btn_mirae").click(async function () {
   let comment = $("#comment_box_mirae").val();
-
-  let doc = {
-    comment: comment,
-    date: new Date()
-  };
-  await addDoc(collection(db, "comments_mirae"), doc);
-  window.location.reload()
+  if (comment == "예뻐요") {
+    alert("잘못 입력된 정보입니다.");
+  } else {
+    let doc = {
+      comment: comment,
+      date: new Date(),
+    };
+    await addDoc(collection(db, "comments_mirae"), doc);
+    window.location.reload();
+  }
 });
 
 //미래db가져오기
 async function get_comments_mirae() {
-  const q = query(collection(db, "comments_mirae"), orderBy("date"))
-  const querySnapshot = await getDocs(q)
+  const q = query(collection(db, "comments_mirae"), orderBy("date"));
+  const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach((doc) => {
     const row = doc.data();
-    const comment = row['comment'];
-    mirae_comment_list.push(comment)
+    const comment = row["comment"];
+    mirae_comment_list.push(comment);
   });
 
   mirae_comment_list.forEach((a) => {
-    const commentColor = mirae_comment_list.indexOf(a) % 2
+    const commentColor = mirae_comment_list.indexOf(a) % 2;
     if (commentColor === 0) {
       const temp_html = `<p class='aaa'>${a}</p>`;
-      $('#commented_mirae').prepend(temp_html);
+      $("#commented_mirae").prepend(temp_html);
     } else {
       const temp_html = `<p class='bbb'>${a}</p>`;
-      $('#commented_mirae').prepend(temp_html);
+      $("#commented_mirae").prepend(temp_html);
     }
   });
 }
-get_comments_mirae()
+get_comments_mirae();
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 
@@ -132,32 +145,32 @@ $("#comment_btn_yuna").click(async function () {
 
   let doc = {
     comment: comment,
-    date: new Date()
+    date: new Date(),
   };
   await addDoc(collection(db, "comments_yuna"), doc);
-  window.location.reload()
+  window.location.reload();
 });
 
 //유나db가져오기
 async function get_comments_yuna() {
-  const q = query(collection(db, "comments_yuna"), orderBy("date"))
-  const querySnapshot = await getDocs(q)
+  const q = query(collection(db, "comments_yuna"), orderBy("date"));
+  const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach((doc) => {
     const row = doc.data();
-    const comment = row['comment'];
-    yuna_comment_list.push(comment)
+    const comment = row["comment"];
+    yuna_comment_list.push(comment);
   });
 
   yuna_comment_list.forEach((a) => {
-    const commentColor = yuna_comment_list.indexOf(a) % 2
+    const commentColor = yuna_comment_list.indexOf(a) % 2;
     if (commentColor === 0) {
       const temp_html = `<p class='aaa'>${a}</p>`;
-      $('#commented_yuna').prepend(temp_html);
+      $("#commented_yuna").prepend(temp_html);
     } else {
       const temp_html = `<p class='bbb'>${a}</p>`;
-      $('#commented_yuna').prepend(temp_html);
+      $("#commented_yuna").prepend(temp_html);
     }
   });
 }
-get_comments_yuna()
+get_comments_yuna();
