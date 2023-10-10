@@ -34,6 +34,8 @@ $("#comment_btn_minseok").click(async function () {
     alert("잘못된 입력입니다.");
   } else if (comment === "멋져요") {
     window.open("https://www.youtube.com/shorts/eLpP7DkYiVE");
+  } else if (comment === "QnA") {
+    window.open("https://chat.openai.com/");
   } else {
     let doc = {
       comment: comment,
