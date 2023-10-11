@@ -4,12 +4,12 @@ let today = new Date().toLocaleDateString('ko',{
 let year = today.slice(0,4)
 let month = today.slice(6,8)
 let day = today.slice(10,12)
-let time = today.slice(17,19)
+let time = today.slice(17,19)-1
 today = `${year}${month}${day}`;
+console.log(year,month,day,time)
 
 const API_KEY =
-  "dFutIVbhP9iCO5wH%2Bn0dhh4QasCgcBUBGWoQNFldz8YNlyL8Jo0b32tAknfEA8N9YfCYdZ3O2PrRscDkO0gX1g%3D%3D";
-
+"qyRur7QSRyqCGsiZT%2B7R1FPMjeiPUBaUWZMGK613aO%2Boc%2FbwjVAp0qizm6LTL0Ikt5%2F6n4URH%2FwJpt6sebY1lw%3D%3D";
 //민석 weather
 $.getJSON(
   `https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=${API_KEY}&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${today}&base_time=${time}00&nx=91&ny=76`,
