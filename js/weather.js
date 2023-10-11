@@ -8,7 +8,7 @@ let time = today.slice(17, 19)
 today = `${year}${month}${day}`;
 console.log(year, month, day, time)
 
-const API_KEY ="qyRur7QSRyqCGsiZT%2B7R1FPMjeiPUBaUWZMGK613aO%2Boc%2FbwjVAp0qizm6LTL0Ikt5%2F6n4URH%2FwJpt6sebY1lw%3D%3D";
+const API_KEY = "qyRur7QSRyqCGsiZT%2B7R1FPMjeiPUBaUWZMGK613aO%2Boc%2FbwjVAp0qizm6LTL0Ikt5%2F6n4URH%2FwJpt6sebY1lw%3D%3D";
 //민석 weather
 $.getJSON(
   `https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=${API_KEY}&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${today}&base_time=${time}00&nx=91&ny=76`,
