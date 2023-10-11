@@ -1,13 +1,16 @@
 let today = new Date().toLocaleDateString('ko', {
   hour: "2-digit"
 })
+let hour = new Date().toString()
+console.log(hour)
 let year = today.slice(0, 4)
 let month = today.slice(6, 8)
 let day = today.slice(10, 12)
-let time = today.slice(17, 19)
+let time = hour.slice(16, 18)-1
 today = `${year}${month}${day}`;
-console.log(year, month, day, time)
 
+console.log(today)
+console.log(time)
 const API_KEY = "qyRur7QSRyqCGsiZT%2B7R1FPMjeiPUBaUWZMGK613aO%2Boc%2FbwjVAp0qizm6LTL0Ikt5%2F6n4URH%2FwJpt6sebY1lw%3D%3D";
 //민석 weather
 $.getJSON(
