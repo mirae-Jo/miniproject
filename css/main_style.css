@@ -268,6 +268,12 @@ header h1 span {
   text-indent: 15px;
   position: relative;
 }
+.commented .time {
+  position: absolute;
+  right: 60px;
+  color: #999;
+}
+
 .commented p:nth-child(even) {
   background-color: #bbb;
 }

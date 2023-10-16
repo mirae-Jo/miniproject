@@ -100,8 +100,31 @@ async function get_comments_mirae() {
 
   querySnapshot.forEach((doc) => {
     const row = doc.data();
+    const time = row["date"].toDate();
+    console.dir(time);
+    const Year = time.getUTCFullYear();
+    const Month = time.getMonth();
+    const Day = time.getDay();
+    const Hours = time.getHours();
+    const Minutes = time.getMinutes();
+    const Seconds = time.getSeconds();
+    const date =
+      Year +
+      "년" +
+      Month +
+      "월" +
+      Day +
+      "일" +
+      " " +
+      Hours +
+      "시" +
+      Minutes +
+      "분" +
+      Seconds +
+      "초";
+
     const comment = row["comment"];
-    const teml_html = `<p class = 'commentColor'id='${doc.id}'>${comment}<img src="./img/delete_btn.png" class='delete_btn mirae_delete_btn'></p>`;
+    const teml_html = `<p class = 'commentColor'id='${doc.id}'>${comment}<span class="time">${date}</span><img src="./img/delete_btn.png" class='delete_btn mirae_delete_btn'></p>`;
     $("#commented_mirae").prepend(teml_html);
   });
   const delete_btns = document.querySelectorAll(".mirae_delete_btn");
