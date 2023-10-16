@@ -34,6 +34,8 @@ $("#comment_btn_minseok").click(async function () {
     alert("잘못된 입력입니다.");
   } else if (comment === "멋져요") {
     window.open("https://www.youtube.com/shorts/eLpP7DkYiVE");
+  } else if (comment === "QnA") {
+    window.open("https://chat.openai.com/");
   } else {
     let doc = {
       comment: comment,
@@ -141,6 +143,13 @@ $("#comment_btn_yuna").click(async function () {
   let comment = $("#comment_box_yuna").val();
   if (comment == "별로에요") {
     alert("잘못입력했습니다.");
+  } else if (comment == "예뻐요") {
+    let doc = {
+      comment: '너 뭘 좀 아는구나?',
+      date: new Date(),
+    };
+    await addDoc(collection(db, "comments_yuna"), doc);
+    window.location.reload();
   } else {
     let doc = {
       comment: comment,
